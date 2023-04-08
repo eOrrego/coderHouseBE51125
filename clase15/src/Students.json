@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "nombre": "Juan",
+    "apellido": "Hoyos",
+    "edad": 40,
+    "dni": "abcd1234",
+    "curso": "BackEnd",
+    "nota": 3
+  },
+  {
+    "id": 2,
+    "nombre": "Juan",
+    "apellido": "Hoyos",
+    "edad": 40,
+    "dni": "abcd1234",
+    "curso": "BackEnd",
+    "nota": 3
+  },
+  {
+    "id": 3,
+    "nombre": "Juan",
+    "apellido": "Hoyos",
+    "edad": "40",
+    "dni": "abcd1234",
+    "curso": "BackEnd",
+    "nota": 3
+  }
+]
