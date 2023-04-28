@@ -5,6 +5,7 @@ import { __dirname } from './utils.js'
 import handlebars from 'express-handlebars'
 import viewsRouter from './routes/views.router.js'
 import usersRouter from './routes/users.router.js'
+import jwtRouter from './routes/jwt.router.js'
 // db
 import './db/configDB.js'
 // passport
@@ -62,6 +63,7 @@ app.use(passport.session())
 // routes
 app.use('/views', viewsRouter)
 app.use('/users', usersRouter)
+app.use('/jwt',jwtRouter)
 
 app.listen(8080, () => {
   console.log('Escuchando al puerto 8080')

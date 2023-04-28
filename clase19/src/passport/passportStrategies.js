@@ -1,9 +1,11 @@
 import passport from 'passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as GithubStrategy } from 'passport-github2'
+import { ExtractJwt, Strategy as JWTStrategy } from 'passport-jwt'
 import { usersModel } from '../db/models/users.model.js'
 import { compareData, hashData } from '../utils.js'
 
+const secretKeyJWT = 'secretJWT'
 // LOCAL
 passport.use(
   'login',
@@ -74,6 +76,20 @@ passport.use(
   )
 )
 
+// JWT
+
+passport.use(
+  'jwt',
+  new JWTStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: secretKeyJWT,
+    },
+    async (jwt_payload, done) => {
+      done(null, jwt_payload)
+    }
+  )
+)
 passport.serializeUser((user, done) => {
   try {
     done(null, user.id)
